@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aloft — Weather Almanac</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>☁️</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="sheet">
+
+    <header class="masthead">
+      <div class="masthead-title">
+        <span class="mark" aria-hidden="true">◐</span>
+        <h1>Aloft</h1>
+      </div>
+      <p class="masthead-sub">A daily reading of the sky, anywhere you point it.</p>
+    </header>
+
+    <form id="search-form" class="search-row" autocomplete="off">
+      <label for="city-input" class="visually-hidden">Search for a place</label>
+      <input type="text" id="city-input" placeholder="Enter a city — Agra, Lisbon, Kyoto…" />
+      <button type="submit" id="search-btn">Read sky</button>
+      <button type="button" id="locate-btn" title="Use my location">
+        <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><circle cx="12" cy="12" r="3" fill="currentColor"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        <span>Locate me</span>
+      </button>
+    </form>
+
+    <p id="status" class="status" role="status" aria-live="polite"></p>
+
+    <main id="result" class="result hidden">
+
+      <section class="hero" aria-label="Current conditions">
+        <div class="hero-place">
+          <h2 id="place-name">—</h2>
+          <p id="place-time">—</p>
+        </div>
+
+        <div class="hero-body">
+          <div class="hero-icon" id="hero-icon" aria-hidden="true"></div>
+          <div class="hero-temp">
+            <span id="temp-value">--</span><span class="deg">°</span>
+            <p id="condition-text" class="condition">—</p>
+          </div>
+        </div>
+
+        <dl class="hero-stats">
+          <div><dt>Feels like</dt><dd id="feels-like">—</dd></div>
+          <div><dt>Humidity</dt><dd id="humidity">—</dd></div>
+          <div><dt>Wind</dt><dd id="wind">—</dd></div>
+          <div><dt>UV index</dt><dd id="uv">—</dd></div>
+        </dl>
+      </section>
+
+      <section class="ledger" aria-label="Seven day outlook">
+        <h3 class="ledger-title">Seven-day outlook</h3>
+        <div id="forecast-rows" class="ledger-rows"></div>
+      </section>
+
+    </main>
+
+    <footer class="colophon">
+      <p>Readings via Open&#8209;Meteo. No key, no tracking, just weather.</p>
+    </footer>
+
+  </div>
+
+<script src="script.js"></script>
+</body>
+</html>
